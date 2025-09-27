@@ -23,7 +23,6 @@ function handleFirstRequest(req , res) {
 /** They are req (the request object) and res (the response object), and contains the logic to handle the 
 request and send back a response. In the provided code, the handleRequest function is the request handler 
 function.**/
-
 // So,app.get('/', handleFirstRequest) means that when a GET request is made to the '' route, the handleFirstRequest 
 // function will be invoked to handle the request.
 

@@ -1,0 +1,26 @@
+{
+  "name": "backend-node-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnanyaM181/Backend-Node-Express.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnanyaM181/Backend-Node-Express/issues"
+  },
+  "homepage": "https://github.com/AnanyaM181/Backend-Node-Express#readme",
+  "dependencies": {
+    "body": "^5.1.0",
+    "body-parser": "^2.2.0",
+    "express": "^5.1.0",
+    "parser": "^0.1.4"
+  }
+}
