@@ -7,6 +7,7 @@
     "bytes": "^1.0.0",
     "continuable-cache": "^0.3.1",
     "error": "^7.2.1",
+    "express": "^5.1.0",
     "parser": "^0.1.4",
     "raw-body": "^1.1.7",
     "safe-json-parse": "^1.0.1",
