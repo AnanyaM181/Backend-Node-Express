@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 // This line imports Mongoose into our file
 /* Mongoose is a library used to connect Node.js applications to MongoDB and makes working with MongoDB easier.*/
 
-
 const connectDb = async () => {
 /* creating an asynchronous function called connectDb.
    async is used because connecting to MongoDB takes some time, and we want to handle it properly using await
