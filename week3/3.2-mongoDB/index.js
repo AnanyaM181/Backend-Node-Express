@@ -11,6 +11,8 @@ app.use(bodyParser.json()) //parses JSON request bodies
 connectDb();
 
 //to create a todo
+
+// POST new todo
 app.post('/todos', async (req, res) => {
     try {
         const todo = new ToDo(req.body);
@@ -22,7 +24,7 @@ app.post('/todos', async (req, res) => {
     }
 })
 
-
+// GET one todo
 app.get('/todos', async (req, res) => {
     try {
         const todos = await ToDo.find()
@@ -36,6 +38,29 @@ app.get('/todos', async (req, res) => {
         })
     }
 })
+
+// PUT update todo
+app.put('/todos/:id', async (req, res) => {
+  try {
+    const updated = await ToDo.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    if (!updated) return res.status(404).send('Todo not found');
+    res.json(updated);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+// DELETE todo
+app.delete('/todos/:id', async (req, res) => {
+  try {
+    const deleted = await ToDo.findByIdAndDelete(req.params.id);
+    if (!deleted) return res.status(404).send('Todo not found');
+    res.status(200).send('Todo deleted');
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
 // for all other routes, return 404
 app.use((req, res, next) => {
     res.status(404).send();
