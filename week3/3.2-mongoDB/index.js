@@ -5,10 +5,11 @@ const ToDo = require('./src/models/toDo')
 
 const app = express();
 
-app.use(express.json())
-app.use(bodyParser.json())
+app.use(express.json()) // Built-in Express middleware to automatically parse JSON request bodies.
+app.use(bodyParser.json()) //parses JSON request bodies
 
 connectDb();
+
 //to create a todo
 app.post('/todos', async (req, res) => {
     try {
