@@ -17,7 +17,7 @@ app.post('/todos', async (req, res) => {
     try {
         const todo = new ToDo(req.body);
         const saved = await todo.save();
-        res.status(200).json(todo);
+        res.status(200).json(saved);
     } catch (err) {
         res.status(400).json({ error: err.message });
 
