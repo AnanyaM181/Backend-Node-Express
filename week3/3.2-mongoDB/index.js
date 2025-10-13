@@ -29,7 +29,7 @@ app.post('/todos', async (req, res) => {
 // new ToDo(req.body) creates a new todo object.
 // todo.save() inserts it into MongoDB.
 // Sends back the saved todo as JSON.
-// Handles errors properly
+// Handles errors properly.
 
 
 // GET one todo
