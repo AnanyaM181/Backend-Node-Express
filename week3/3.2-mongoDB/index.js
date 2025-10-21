@@ -16,7 +16,7 @@ connectDb();
 
 
 // POST new todo
-app.post('/todos', async (req, res) => {
+app.post('/todo', async (req, res) => {
   try {
     const todo = new ToDo(req.body);
     const saved = await todo.save();
@@ -96,6 +96,6 @@ function start() {
   console.log(`Example app listening port 3000`); // prints a message when server is running.
 }
 
-app.listen(3000, start) 
+app.listen(3000, start)
 // Starts the server on port 3000.
 // Calls start() after starting.
