@@ -13,8 +13,8 @@ const toDoSchema = new mongoose.Schema({ // creating a schema for your To-Do ite
     }, // It's optional because required is not set.
 
     completed : {
-        type : Boolean, // it stores only true or false
-        default : false // if we don’t provide this value when saving, it will automatically be false.
+        type : Boolean, // It stores only true or false.
+        default : false // If we don’t provide this value when saving, it will automatically be false.
     }
 
 });
