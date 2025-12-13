@@ -14,4 +14,4 @@ const connectDb = async () => {
     }
 
 }
-module.exportsm = connectDb;
+module.exports = connectDb;

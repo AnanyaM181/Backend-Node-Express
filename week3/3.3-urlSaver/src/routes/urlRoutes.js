@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Url = require('../models/urlModel');
+const Url = require('../models/urlSaver');
 
 // Create new URL
 router.post('/', async (req, res) => {
