@@ -12,7 +12,7 @@ app.use(express.json());
 connectDb();
 
 // Routes
-app.use('/api/urls', urlRoutes);
+app.use('/api', urlRoutes);
 
 // Test route
 app.get('/', (req, res) => res.send('✅ URL Saver API is running'));
