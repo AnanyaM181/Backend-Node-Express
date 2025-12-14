@@ -1,4 +1,5 @@
-const mongoose = require('mongoose'); // connect mongoose
+const mongoose = require('mongoose'); //Imports the Mongoose library
+// Mongoose is used to connect Node.js with MongoDB
 
 const connectDb = async () => {
     try {
