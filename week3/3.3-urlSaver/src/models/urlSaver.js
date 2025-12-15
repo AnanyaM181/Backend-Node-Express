@@ -1,5 +1,10 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'); //connects Node.js to MongoDB
+
 const validator = require('validator');
+// Validator checks whether the data given by a user is correct or not.
+// Validator provides ready-made functions to validate data
+// Here, we use it to check whether a string is a valid URL
+// Without this, We would have to write our own URL-checking logic.
 
 const urlSchema = new mongoose.Schema({
   url: {
