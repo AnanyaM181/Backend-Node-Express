@@ -3,7 +3,7 @@ const mongoose = require('mongoose'); //Imports the Mongoose library
 
 const connectDb = async () => { // async allows us to use await inside the function
     try { // If any error occurs in try, execution jumps to catch
-        await mongoose.connect('mongodb+srv://ananyamohapatra822_db_user:Ananya%40183011@cluster0.kos3lm6.mongodb.net/test', {
+        await mongoose.connect('mongodb+srv://ananyamohapatra822_db_user:CKGcSjbcp9tjdnhD@cluster0.q73043m.mongodb.net/', {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });

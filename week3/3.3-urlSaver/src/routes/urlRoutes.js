@@ -3,7 +3,7 @@ const router = express.Router();
 const Url = require('../models/urlSaver');
 
 // Create new URL
-router.post('/', async (req, res) => {
+router.post('/createUrl', async (req, res) => {
   try {
     const { url, description } = req.body;
     const newUrl = new Url({ url, description });
@@ -15,7 +15,7 @@ router.post('/', async (req, res) => {
 });
 
 // Get all URLs
-router.get('/', async (req, res) => {
+router.get('/getAllUrl', async (req, res) => {
   const urls = await Url.find().sort({ createdAt: -1 });
   res.json(urls);
 });
