@@ -14,6 +14,7 @@ router.post('/createUrl', async (req, res) => {
   }
 });
 
+
 // Get all URLs
 router.get('/getAllUrl', async (req, res) => {
   const urls = await Url.find().sort({ createdAt: -1 });
