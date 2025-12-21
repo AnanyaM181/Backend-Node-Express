@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Saver</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        button {
+            padding: 12px 24px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .show-urls-btn {
+            background-color: #008CBA;
+        }
+
+        .show-urls-btn:hover {
+            background-color: #007399;
+        }
+
+        .message {
+            padding: 10px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .urls-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .url-list {
+            margin-top: 20px;
+        }
+
+        .url-item {
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #4CAF50;
+            border-radius: 4px;
+        }
+
+        .url-item .url {
+            color: #008CBA;
+            font-weight: bold;
+            word-break: break-all;
+            margin-bottom: 8px;
+        }
+
+        .url-item .description {
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .url-item .date {
+            color: #999;
+            font-size: 12px;
+        }
+
+        .no-urls {
+            text-align: center;
+            color: #999;
+            padding: 20px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📎 URL Saver</h1>
+
+        <!-- Form Section -->
+        <div class="form-section">
+            <h2>Save a New URL</h2>
+            <form id="urlForm">
+                <div class="form-group">
+                    <label for="url">URL *</label>
+                    <input 
+                        type="text" 
+                        id="url" 
+                        name="url" 
+                        placeholder="https://example.com" 
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description *</label>
+                    <input 
+                        type="text" 
+                        id="description" 
+                        name="description" 
+                        placeholder="Describe this URL" 
+                        required
+                    >
+                </div>
+
+                <button type="submit" id="saveBtn">Save URL</button>
+            </form>
+
+            <div id="formMessage"></div>
+        </div>
+
+        <!-- Display URLs Section -->
+        <div class="urls-section">
+            <h2>Saved URLs</h2>
+            <button class="show-urls-btn" id="showUrlsBtn">Show All Saved URLs</button>
+            <div id="urlList" class="url-list"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
