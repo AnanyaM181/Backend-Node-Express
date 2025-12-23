@@ -10,6 +10,7 @@ const formMessage = document.getElementById('formMessage');
 const showUrlsBtn = document.getElementById('showUrlsBtn');
 const urlListDiv = document.getElementById('urlList');
 
+
 // Function to show messages
 function showMessage(message, type) {
     formMessage.innerHTML = `<div class="message ${type}">${message}</div>`;
