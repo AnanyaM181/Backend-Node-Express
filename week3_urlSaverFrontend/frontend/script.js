@@ -54,35 +54,69 @@ function showMessage(message, type) {
     }, 3000);
 }
 
+
 // Function to create a new URL (POST request)
+
+// Async function to send a new URL to the backend server
+// Parameters:
+//   - url: The URL string to save
+//   - description: The description of the URL
+// This function is async because it performs a network request which takes time
 async function createUrl(url, description) {
     try {
         // Disable button while saving
         saveBtn.disabled = true;
-        saveBtn.textContent = 'Saving...';
+        // Disable the save button to prevent multiple submissions
+        // This prevents users from clicking "Save" multiple times while a request is in progress
 
+        saveBtn.textContent = 'Saving...';
+        // Change button text to show that saving is in progress
+        // Provides visual feedback to the user
+
+        // Make a POST request to the backend API
+        // fetch() is the modern way to make HTTP requests in JavaScript
         const response = await fetch(`http://localhost:5001/api/createUrl`,
             {
-                method: 'POST',
+                method: 'POST', // POST method is used to create new resources
+
+                // Headers tell the server what format we're sending data in
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'application/json', // We're sending JSON data
                 },
                 body: JSON.stringify({ url, description })
+                // Convert our JavaScript object to JSON string and send it in the request body
+                // JSON.stringify() converts {url: "...", description: "..."} to a JSON string
             });
 
-        const data = await response.json();
 
-        if (response.ok) {
+        const data = await response.json();
+        // Parse the JSON response from the server
+        // .json() converts the JSON string response to a JavaScript object
+
+        // Check if the response was successful (status code 200-299)
+        if (response.ok) { // Show success message with green styling
             showMessage('✅ URL saved successfully!', 'success');
+
             // Clear the form
+            // Clear all input fields in the form
+            // This prepares the form for the next URL entry
             urlForm.reset();
+
             // Automatically show updated list
+            // Automatically fetch and display the updated list of URLs
+            // This shows the user their newly added URL immediately
             getAllUrls();
         } else {
+            // If response wasn't ok, show error message
+            // data.error comes from the backend, or we use a default message
             showMessage(`❌ Error: ${data.error || 'Failed to save URL'}`, 'error');
         }
     } catch (error) {
+        // Catch any network errors or other exceptions
+        // This handles cases like server being offline, network issues, etc.
         showMessage(`❌ Error: ${error.message}`, 'error');
+
+        // Log the full error to browser console for debugging
         console.error('Error creating URL:', error);
     } finally {
         // Re-enable button
