@@ -119,84 +119,132 @@ async function createUrl(url, description) {
         // Log the full error to browser console for debugging
         console.error('Error creating URL:', error);
     } finally {
-        // Re-enable button
+        // The finally block always runs, whether there was an error or not
+        // This ensures the button is re-enabled even if an error occurred
+
+        // Re-enable the save button
         saveBtn.disabled = false;
+
+        // Reset button text back to original
         saveBtn.textContent = 'Save URL';
     }
 }
 
 // Function to get all URLs (GET request)
+// Async function to fetch all saved URLs from the backend
+// No parameters needed - it retrieves everything
 async function getAllUrls() {
     try {
+        // Disable the button to prevent multiple simultaneous requests
         showUrlsBtn.disabled = true;
+
+        // Change button text to show loading state
         showUrlsBtn.textContent = 'Loading...';
 
+        // Make a GET request to fetch all URLs from the database
+        // GET is used to retrieve data (not modify it)
         const response = await fetch(`http://localhost:5001/api/getAllUrl`);
+
+        // Parse the JSON response (should be an array of URL objects)
         const urls = await response.json();
 
+        // Check if request was successful
         if (response.ok) {
+            // Pass the URLs array to the display function
             displayUrls(urls);
         } else {
+            // If request failed, show error message in the URL list area
             urlListDiv.innerHTML = '<div class="error">❌ Failed to load URLs</div>';
         }
     } catch (error) {
+        // Handle any errors (network issues, server down, etc.)
         urlListDiv.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
+
+        // Log error for debugging
         console.error('Error fetching URLs:', error);
     } finally {
+        // Always re-enable the button and reset its text
+        // This runs regardless of success or failure
         showUrlsBtn.disabled = false;
         showUrlsBtn.textContent = 'Show All Saved URLs';
     }
 }
 
 // Function to display URLs on the page
+// Function to display the array of URLs on the webpage
+// Parameter: urls - an array of URL objects from the database
 function displayUrls(urls) {
     // Clear previous content
+    // Clear any previous content in the URL list container
+    // This prevents duplicates when refreshing the list
     urlListDiv.innerHTML = '';
 
-    // Check if there are any URLs
+    // Check if the array is empty (no URLs saved yet)
     if (urls.length === 0) {
+        // Show a friendly message when there are no URLs
         urlListDiv.innerHTML = '<div class="no-urls">No URLs saved yet. Add your first URL above!</div>';
-        return;
+        return; // Exit the function early since there's nothing to display
     }
 
     // Create HTML for each URL
+    // Loop through each URL object in the array
+    // forEach() executes the function for each item
     urls.forEach(urlData => {
+        // Create a new div element for this URL item
         const urlItem = document.createElement('div');
+        
+        // Add a CSS class for styling
         urlItem.className = 'url-item';
 
-        // Format the date
+        // Convert the ISO date string to a human-readable format
+        // new Date() creates a Date object from the string
+        // toLocaleString() formats it according to user's locale (e.g., "1/1/2026, 3:30:00 PM")
         const date = new Date(urlData.createdAt).toLocaleString();
 
+        // Set the HTML content of this URL item
+        // Template literals (backticks) allow us to insert variables with ${}
+        // Each piece of data gets an emoji and is wrapped in a styled div
         urlItem.innerHTML = `
             <div class="url">🔗 ${urlData.url}</div>
             <div class="description">📝 ${urlData.description}</div>
             <div class="date">📅 ${date}</div>
         `;
 
+        // Add this completed URL item to the URL list container
+        // appendChild() adds the element as the last child
         urlListDiv.appendChild(urlItem);
     });
 }
 
 // Event Listeners
-
-// Handle form submission
+// Listen for the form submission event
+// This fires when user clicks "Save URL" button or presses Enter in the form
 urlForm.addEventListener('submit', (e) => {
-    e.preventDefault(); // Prevent page reload
+    // Prevent the default form submission behavior
+    // By default, forms reload the page - we want to handle it with JavaScript instead
+    e.preventDefault();
 
+    // Get the URL value and remove any extra whitespace from the beginning/end
+    // .trim() removes spaces, tabs, newlines, etc.
     const url = urlInput.value.trim();
+    
+    // Get the description value and trim whitespace
     const description = descriptionInput.value.trim();
 
-    // Basic validation (HTML5 required attribute also works)
+    // Validate that both fields have content
+    // Even though HTML5 'required' attribute helps, this adds extra JS validation
     if (!url || !description) {
+        // Show error message if either field is empty
         showMessage('❌ Please fill in both URL and Description', 'error');
-        return;
+        return; // Exit the function - don't proceed with saving
     }
 
-    // Call the createUrl function
+    // If validation passed, call the createUrl function to save to backend
     createUrl(url, description);
 });
 
-// Handle "Show All URLs" button click
+// Listen for clicks on the "Show All URLs" button
 showUrlsBtn.addEventListener('click', () => {
+    // When clicked, fetch and display all URLs from the database
     getAllUrls();
 });
