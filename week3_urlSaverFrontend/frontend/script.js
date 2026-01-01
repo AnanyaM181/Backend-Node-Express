@@ -1,22 +1,56 @@
 // API Base URL - Update this to match your backend port
+
 const API_BASE_URL = 'http://localhost:5001/api';
+// API Base URL - This is the server endpoint where our backend is running
+// Port 5001 is where the backend server listens for requests
+// The '/api' path is the base route for all API endpoints
+
 
 // Get DOM elements
 const urlForm = document.getElementById('urlForm');
+// Get reference to the form element that contains URL and description inputs
+// This allows us to listen for form submission events
+
 const urlInput = document.getElementById('url');
+// Get reference to the URL input field where users type the URL
+// We'll use this to get the URL value when the form is submitted
+
 const descriptionInput = document.getElementById('description');
+// Get reference to the description textarea where users describe the URL
+// We'll use this to get the description value when the form is submitted
+
 const saveBtn = document.getElementById('saveBtn');
+// Get reference to the "Save URL" button
+// We'll use this to disable it during save operations and change its text
+
 const formMessage = document.getElementById('formMessage');
+// Get reference to the div that displays success/error messages
+// This is where we'll show feedback to the user after actions
+
 const showUrlsBtn = document.getElementById('showUrlsBtn');
+// Get reference to the "Show All Saved URLs" button
+// When clicked, this will fetch and display all saved URLs from the database
+
 const urlListDiv = document.getElementById('urlList');
+// Get reference to the div where the list of URLs will be displayed
+// This is the container that will hold all the URL items we fetch
 
 
 // Function to show messages
+
+// Function to display success or error messages to the user
+// Parameters:
+//   - message: The text to display (string)
+//   - type: Either 'success' or 'error' to style the message appropriately
 function showMessage(message, type) {
+    // Create HTML with a div containing the message
+    // The 'type' class will apply appropriate styling (green for success, red for error)
     formMessage.innerHTML = `<div class="message ${type}">${message}</div>`;
-    // Clear message after 3 seconds
+    
+    // Set a timer to automatically clear the message after 3 seconds (3000 milliseconds)
+    // This prevents old messages from cluttering the UI
     setTimeout(() => {
-        formMessage.innerHTML = '';
+        formMessage.innerHTML = ''; // Clear the message by setting innerHTML to empty string
     }, 3000);
 }
 
