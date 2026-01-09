@@ -13,8 +13,10 @@ app.use(express.json());
 // Connect to MongoDB
 connectDb();
 
+
 // Routes
 app.use('/api', urlRoutes);
+
 
 // Test route
 app.get('/', (req, res) => res.send('✅ URL Saver API is running'));
