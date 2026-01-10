@@ -131,6 +131,7 @@ async function createUrl(url, description) {
     }
 }
 
+
 // Function to get all URLs (GET request)
 // Async function to fetch all saved URLs from the backend
 // No parameters needed - it retrieves everything
