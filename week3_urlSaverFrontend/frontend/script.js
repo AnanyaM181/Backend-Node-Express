@@ -6,7 +6,6 @@ const API_BASE_URL = 'http://localhost:5001/api';
 // The '/api' path is the base route for all API endpoints
 
 
-
 // Get DOM elements
 const urlForm = document.getElementById('urlForm');
 // Get reference to the form element that contains URL and description inputs
