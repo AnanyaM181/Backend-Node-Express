@@ -1,46 +1,63 @@
 <!DOCTYPE html>
+<!-- Declares this document as HTML5 -->
+
 <html lang="en">
+<!-- Root element of the HTML page, language set to English -->
+
 <head>
     <meta charset="UTF-8">
+    <!-- Supports all characters (including emojis, symbols, etc.) -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Makes the page responsive on mobile and tablets -->
+
     <title>URL Saver</title>
+    <!-- Title shown on browser tab -->
+
     <style>
+        /* Reset default browser spacing */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* Body styling */
         body {
             font-family: Arial, sans-serif;
             padding: 20px;
             background-color: #f5f5f5;
         }
 
+        /* Main container card */
         .container {
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 800px;          /* Max width of content */
+            margin: 0 auto;            /* Center horizontally */
             background-color: white;
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
+        /* Main heading */
         h1 {
             color: #333;
             margin-bottom: 30px;
         }
 
+        /* Section for form */
         .form-section {
             margin-bottom: 30px;
             padding-bottom: 30px;
             border-bottom: 2px solid #eee;
         }
 
+        /* Each form input group */
         .form-group {
             margin-bottom: 15px;
         }
 
+        /* Label styling */
         label {
             display: block;
             margin-bottom: 5px;
@@ -48,6 +65,7 @@
             font-weight: bold;
         }
 
+        /* Input fields */
         input[type="text"] {
             width: 100%;
             padding: 10px;
@@ -56,11 +74,13 @@
             font-size: 14px;
         }
 
+        /* Input focus effect */
         input[type="text"]:focus {
             outline: none;
             border-color: #4CAF50;
         }
 
+        /* Default button style */
         button {
             padding: 12px 24px;
             background-color: #4CAF50;
@@ -72,15 +92,18 @@
             font-weight: bold;
         }
 
+        /* Button hover effect */
         button:hover {
             background-color: #45a049;
         }
 
+        /* Disabled button */
         button:disabled {
             background-color: #ccc;
             cursor: not-allowed;
         }
 
+        /* Show URLs button */
         .show-urls-btn {
             background-color: #008CBA;
         }
@@ -89,33 +112,39 @@
             background-color: #007399;
         }
 
+        /* Message box */
         .message {
             padding: 10px;
             margin: 15px 0;
             border-radius: 4px;
         }
 
+        /* Success message */
         .success {
             background-color: #d4edda;
             color: #155724;
             border: 1px solid #c3e6cb;
         }
 
+        /* Error message */
         .error {
             background-color: #f8d7da;
             color: #721c24;
             border: 1px solid #f5c6cb;
         }
 
+        /* Saved URLs section heading */
         .urls-section h2 {
             color: #333;
             margin-bottom: 20px;
         }
 
+        /* URL list container */
         .url-list {
             margin-top: 20px;
         }
 
+        /* Each saved URL card */
         .url-item {
             padding: 15px;
             margin-bottom: 15px;
@@ -124,6 +153,7 @@
             border-radius: 4px;
         }
 
+        /* URL text */
         .url-item .url {
             color: #008CBA;
             font-weight: bold;
@@ -131,16 +161,19 @@
             margin-bottom: 8px;
         }
 
+        /* URL description */
         .url-item .description {
             color: #666;
             margin-bottom: 5px;
         }
 
+        /* Date text */
         .url-item .date {
             color: #999;
             font-size: 12px;
         }
 
+        /* Message when no URLs exist */
         .no-urls {
             text-align: center;
             color: #999;
@@ -149,50 +182,68 @@
         }
     </style>
 </head>
+
 <body>
+    <!-- Main container -->
     <div class="container">
+
+        <!-- App title -->
         <h1>📎 URL Saver</h1>
 
-        <!-- Form Section -->
+        <!-- Form section -->
         <div class="form-section">
             <h2>Save a New URL</h2>
+
+            <!-- URL form -->
             <form id="urlForm">
+                
+                <!-- URL input -->
                 <div class="form-group">
                     <label for="url">URL *</label>
                     <input 
-                        type="text" 
-                        id="url" 
-                        name="url" 
-                        placeholder="https://example.com" 
+                        type="text"
+                        id="url"
+                        name="url"
+                        placeholder="https://example.com"
                         required
                     >
                 </div>
 
+                <!-- Description input -->
                 <div class="form-group">
                     <label for="description">Description *</label>
                     <input 
-                        type="text" 
-                        id="description" 
-                        name="description" 
-                        placeholder="Describe this URL" 
+                        type="text"
+                        id="description"
+                        name="description"
+                        placeholder="Describe this URL"
                         required
                     >
                 </div>
 
+                <!-- Submit button -->
                 <button type="submit" id="saveBtn">Save URL</button>
             </form>
 
+            <!-- Message shown after submit -->
             <div id="formMessage"></div>
         </div>
 
-        <!-- Display URLs Section -->
+        <!-- Saved URLs display section -->
         <div class="urls-section">
             <h2>Saved URLs</h2>
-            <button class="show-urls-btn" id="showUrlsBtn">Show All Saved URLs</button>
+
+            <!-- Button to fetch URLs -->
+            <button class="show-urls-btn" id="showUrlsBtn">
+                Show All Saved URLs
+            </button>
+
+            <!-- URLs will be inserted here using JS -->
             <div id="urlList" class="url-list"></div>
         </div>
     </div>
 
+    <!-- External JavaScript file -->
     <script src="script.js"></script>
 </body>
 </html>
