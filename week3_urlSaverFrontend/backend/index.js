@@ -50,7 +50,6 @@ connectDb();
 // For example: /api/urls, /api/urls/:id, etc.
 app.use('/api', urlRoutes);
 
-
 // TEST ROUTE
 // Define a simple GET route at the root path '/'
 // This is used to check if the server is running properly
