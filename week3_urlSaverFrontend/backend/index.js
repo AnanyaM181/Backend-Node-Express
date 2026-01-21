@@ -56,7 +56,6 @@ app.use('/api', urlRoutes);
 // When someone visits http://localhost:5001/, they'll see this message
 app.get('/', (req, res) => res.send('✅ URL Saver API is running'));
 
-
 // START THE SERVER
 // Start the Express server and listen for incoming requests on the specified PORT
 // The callback function runs once the server successfully starts
