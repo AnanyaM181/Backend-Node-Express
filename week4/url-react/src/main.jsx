@@ -1,5 +1,5 @@
 // Import StrictMode from React
-// StrictMode helps find potential problems in your app during development
+// StrictMode helps find potential problems in app during development
 import { StrictMode } from 'react'
 
 // Import createRoot from react-dom/client
