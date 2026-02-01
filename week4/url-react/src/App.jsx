@@ -56,7 +56,6 @@ const App = () => {
 
 export default App
 
-
 // Child component
 // Receives props from parent (App)
 const City = (props) => {
