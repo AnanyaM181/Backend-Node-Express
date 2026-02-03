@@ -37,7 +37,7 @@ const App = () => {
 
   }, [])   // [] → run effect only once
 
-  
+
   // JSX returned to the browser
   return (
     <div>
