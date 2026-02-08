@@ -1,7 +1,6 @@
 // Importing useState (for state) and useEffect (for side effects like timers)
 import { useState, useEffect } from "react"
 
-
 // Main App component
 const App = () => {
 
