@@ -16,7 +16,7 @@ const urlRoutes = require('./src/routes/urlRoutes');
 // Import CORS (Cross-Origin Resource Sharing) middleware
 // This allows our API to accept requests from different domains/origins
 // Without this, browsers would block requests from frontend apps on different domains
-const cors = require('cors');
+const cors = require('cors')
 
 // Create an Express application instance
 // This 'app' object has methods for routing HTTP requests, configuring middleware, etc.
