@@ -2,7 +2,6 @@
 // This allows us to store sensitive data like API keys, database URLs, etc. securely
 require('dotenv').config();
 
-
 // Import the Express framework used to create and manage our web server
 const express = require('express');
 
