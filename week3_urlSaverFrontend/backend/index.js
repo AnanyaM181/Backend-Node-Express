@@ -22,7 +22,7 @@ const cors = require('cors');
 // This 'app' object has methods for routing HTTP requests, configuring middleware, etc.
 const app = express();
 
-// Set the port number for our server
+// Set the port number for server
 // First, it tries to use PORT from environment variables (.env file)
 // If PORT is not defined in .env, it defaults to 5001
 const PORT = process.env.PORT || 5001;
