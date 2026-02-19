@@ -8,8 +8,8 @@ const validator = require('validator');
 
 const urlSchema = new mongoose.Schema({
   /**
-A schema defines the structure of a document in MongoDB
-A blueprint / form that tells MongoDB what fields are allowed and what rules they follow
+  A schema defines the structure of a document in MongoDB
+  A blueprint / form that tells MongoDB what fields are allowed and what rules they follow
   **/
   url: { // This field will store the actual website link
     type: String, // Tells MongoDB that url must be a string
