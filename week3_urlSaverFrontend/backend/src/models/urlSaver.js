@@ -1,4 +1,4 @@
-const mongoose=require('mongoose'); //connects Node.js to MongoDB
+const mongoose= require('mongoose'); //connects Node.js to MongoDB
 
 const validator = require('validator');
 // Validator checks whether the data given by a user is correct or not.
