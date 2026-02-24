@@ -6,6 +6,7 @@ const validator = require('validator');
 // Here, we use it to check whether a string is a valid URL
 // Without this, We would have to write our own URL-checking logic.
 
+
 const urlSchema = new mongoose.Schema({
   /**
   A schema defines the structure of a document in MongoDB
