@@ -33,7 +33,6 @@ const PORT = process.env.PORT || 5001;
 // Enable CORS for all routes
 // This allows frontend applications from any origin to make requests to this API
 app.use(cors());
-
 // Enable JSON parsing middleware
 // This parses incoming requests with JSON payloads
 // It makes req.body available with the parsed JSON data
