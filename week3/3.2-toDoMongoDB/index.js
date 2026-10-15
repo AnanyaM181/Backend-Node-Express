@@ -69,7 +69,6 @@ app.put('/todos/:id', async (req, res) => {
 // If no todo found → send 404.
 // Sends updated todo back.
 
-
 // DELETE todo
 app.delete('/todos/:id', async (req, res) => {
   try {
