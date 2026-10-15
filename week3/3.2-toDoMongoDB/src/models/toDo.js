@@ -19,6 +19,7 @@ const toDoSchema = new mongoose.Schema({ // creating a schema for your To-Do ite
 
 });
 
+
 const ToDo = mongoose.model("ToDo",toDoSchema);
 // creating a model named "ToDo" using the schema toDoSchema
 // A model is used to interact with the database — e.g., create, read, update, delete documents.
